@@ -1,17 +1,24 @@
 import React from 'react';
+import {fetchCheeses} from '../actions/cheese';
 
-export default function CheeseList(props) {
+export default class CheeseList extends React.Component{
 
-    const cheeseArr = props.cheeses.map(cheese => {
+componentDidMount() {
+    fetchCheeses();
+}
+
+render() {
+    const cheeseArr = this.props.cheeses.map(cheese => {
             return (
                 <li> {cheese} </li>
             )
     })
 
     return (
-        <ul class='cheese-arr'>
+        <ul className='cheese-arr'>
             {cheeseArr}    
        </ul>
     )
+}
 
 }
