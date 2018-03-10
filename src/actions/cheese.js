@@ -2,7 +2,8 @@
 
 
 
-export const fetchCheeses = () => (dispatch) => {
+export const fetchCheeses = () => dispatch => {
+	console.log('fetchCheeses Called');
 	dispatch(fetchCheesesRequest());
 	return fetch("http://localhost:8080/api/cheeses")
 	.then(res => {
@@ -14,6 +15,7 @@ export const fetchCheeses = () => (dispatch) => {
 	return res.json()
 })
 	.then(data => {
+		console.log('response received');
 	dispatch(fetchCheesesSuccess(data));
 })
 	.catch(err => {
@@ -23,9 +25,12 @@ export const fetchCheeses = () => (dispatch) => {
 
 
 export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST';
-export const fetchCheesesRequest = () => ({
+export const fetchCheesesRequest = () => {
+	console.log('fetchCheeseRequest called');
+	return {
 	type: FETCH_CHEESES_REQUEST
-})
+	}
+}
 
 export const FETCH_CHEESES_ERROR = 'FETCH_CHEESES_ERROR';
 export const fetchCheesesError = (err) => ({
