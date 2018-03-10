@@ -1,11 +1,10 @@
-// import {fetchCheesesRequest, fetchCheesesSuccess, fetchCheesesError} from './syncActions';
 
-
+import {API_BASE_URL} from '../config';
 
 export const fetchCheeses = () => dispatch => {
 	console.log('fetchCheeses Called');
 	dispatch(fetchCheesesRequest());
-	return fetch("http://localhost:8080/api/cheeses")
+	return fetch(`${API_BASE_URL}/cheeses`)
 	.then(res => {
 		if (!res.ok) {
 			return new Error({

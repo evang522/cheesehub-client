@@ -15,14 +15,12 @@ render() {
                 <li key={index}> {cheese} </li>
             )
     })
-
     return (
         <ul className='cheese-arr'>
             {cheeseArr}    
        </ul>
     )
 }
-
 }
 
 const mapStateToProps = state => {
